@@ -1,8 +1,8 @@
 import Paragraph from "./Paragraph"
 
 const Heading = (props) => {
+    console.log("heading rendered")
     // => props entspricht immer einem 
-    console.log("props in heading", props)
     // => falls props {} dann auf Keys prüfen und länge abfragen == early return 
     if (Object.keys(props).length === 0) return
 

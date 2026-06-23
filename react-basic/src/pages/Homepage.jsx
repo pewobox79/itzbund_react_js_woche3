@@ -2,6 +2,7 @@ import Heading from "../components/Heading"
 import Paragraph from "../components/Paragraph"
 
 const Homepage = () => {
+    console.log("homepage rendered")
     return <>
         <div>
             <Heading

@@ -3,6 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "keywords": ["javascript", "react", "dom"],
+  "author": "peter wolf",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",
