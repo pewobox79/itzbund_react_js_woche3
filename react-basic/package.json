@@ -2,7 +2,11 @@
   "name": "react-basic",
   "private": true,
   "version": "0.0.0",
-  "keywords": ["javascript", "react", "dom"],
+  "keywords": [
+    "javascript",
+    "react",
+    "dom"
+  ],
   "author": "peter wolf",
   "license": "MIT",
   "type": "module",
@@ -13,6 +17,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "https-proxy-agent": "^9.1.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },

@@ -1,8 +1,9 @@
 import Heading from "../components/Heading"
 import Paragraph from "../components/Paragraph"
+import UserFeature from "../features/UserFeature/UserFeature"
 
 const Homepage = () => {
-    console.log("homepage rendered")
+
     return <>
         <div>
             <Heading
@@ -23,6 +24,7 @@ const Homepage = () => {
         <Paragraph
             text="das ist mein paragraph prop"
         />
+        <UserFeature/>
     </>
 }
 

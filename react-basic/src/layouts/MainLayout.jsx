@@ -4,7 +4,7 @@ import Header from "../components/Header"
 
 const MainLayout = ({children}) => {
 
-    console.log("mainlayout rendered")
+
     const [changed, setChanged] = useState(false)
 
     console.log("changed", changed)

@@ -1,8 +1,9 @@
 import { useState } from "react"
+import styles from '../../styles/Navigation.module.css'
 
 const NavItem = ({uid, label, href}) => {
 
-    console.log("element rendered", uid)
+
     const [fontChange, setFontChange] = useState(false)
 
     function handleFontChange() {
@@ -10,12 +11,15 @@ const NavItem = ({uid, label, href}) => {
         console.log("innerhalb der function", fontChange)
 
     }
-    
+    const customClassName = `${styles.inActive} ${fontChange ? styles.isActive: ""}`
+    //const tailwindBsp = `flex flex-col item-center text-${fontChange ? "xl" : "lg"}`
+
+    //const customClassEquivalent = styles.inActive + " " + fontChange ? styles.isActive : ""
     console.log("ausserhalb der funktion", fontChange)
-    return <li onClick={handleFontChange}>
+    return <li className={styles.listItem} onClick={handleFontChange}>
         <a 
             href={href} 
-            style={{ fontWeight: fontChange ? "bold" : "" }}>{label}</a>
+            className={customClassName}>{label}</a>
     </li>
 }
 
