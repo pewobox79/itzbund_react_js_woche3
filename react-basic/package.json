@@ -19,7 +19,8 @@
   "dependencies": {
     "https-proxy-agent": "^9.1.0",
     "react": "^19.2.6",
-    "react-dom": "^19.2.6"
+    "react-dom": "^19.2.6",
+    "react-router": "^7.18.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

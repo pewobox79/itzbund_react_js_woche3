@@ -1,9 +1,9 @@
 import { useState } from "react"
 import Footer from "../components/Footer"
 import Header from "../components/Header"
+import { Outlet } from "react-router"
 
-const MainLayout = ({children}) => {
-
+const MainLayout = () => {
 
     const [changed, setChanged] = useState(false)
 
@@ -12,7 +12,7 @@ const MainLayout = ({children}) => {
         <Header changed={changed}/>
         <button onClick={()=> setChanged(!changed)}>change</button>
         <main>
-            {children}
+            <Outlet/>
         </main>
         <Footer />
     </>
