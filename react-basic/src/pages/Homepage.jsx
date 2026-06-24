@@ -1,5 +1,7 @@
 import Heading from "../components/Heading"
 import Paragraph from "../components/Paragraph"
+import ConsentFeature from "../features/ConsentFeature/ConsentFeature"
+import LoginFeature from "../features/LoginFeature/LoginFeature"
 import UserFeature from "../features/UserFeature/UserFeature"
 
 const Homepage = () => {
@@ -25,6 +27,8 @@ const Homepage = () => {
             text="das ist mein paragraph prop"
         />
         <UserFeature/>
+        <ConsentFeature/>
+        <LoginFeature/>
     </>
 }
 

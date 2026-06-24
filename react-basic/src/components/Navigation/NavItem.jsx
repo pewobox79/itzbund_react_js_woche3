@@ -2,8 +2,6 @@ import { useState } from "react"
 import styles from '../../styles/Navigation.module.css'
 
 const NavItem = ({uid, label, href}) => {
-
-
     const [fontChange, setFontChange] = useState(false)
 
     function handleFontChange() {

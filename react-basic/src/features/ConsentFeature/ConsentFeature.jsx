@@ -23,7 +23,7 @@ const ConsentFeature = () => {
         //cleanup function
         return () => {
             const elementToRemove = document.getElementById("consent")
-            elementToRemove.remove()
+            elementToRemove?.remove()
             console.log("cleanup runs")
         }
 
