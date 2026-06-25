@@ -6,7 +6,7 @@ const INIT_VALUES = { username: "", password: "" }
 
 const LoginFeature = () => {
 
-    const {setLocalStorage} = useLocalStorage("itzb_user")
+    const {setLocalStorage, removeLocalStorage} = useLocalStorage("itzb_user")
     const [login, setLogin] = useState(INIT_VALUES)
     const [status, setStatus] = useState({loading: false, success: false, error: false})
 
@@ -24,13 +24,17 @@ const LoginFeature = () => {
         console.log("submitted Data", login)
         const updatedValues = {
             ...login,
-            loggedIn: true
+            loggedIn: true,
+            role: "employee"
         }
         setLocalStorage(updatedValues)
         setStatus({...status, loading: false})
 
     }
 
+    function handleLogout(){
+        removeLocalStorage()
+    }
     console.log("login values", login)
     return <div>
         <Heading title="login feature" variant="h1" />
@@ -59,6 +63,7 @@ const LoginFeature = () => {
             <br />
             <button onClick={handleSubmit}>Submit</button>
         </form>
+        <button onClick={handleLogout}>logout</button>
     </div>
 }
 

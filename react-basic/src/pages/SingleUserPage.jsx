@@ -3,10 +3,13 @@ import { useEffect, useState } from 'react'
 import { GUACAMOLE_URL } from '../utils/constantValues'
 import Heading from '../components/Heading'
 import Paragraph from '../components/Paragraph'
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
 const SingleUserPage = () => {
     const { id } = useParams()
 
+    const {value} = useLocalStorage("itzb_user")
+    console.log("value", value)
     const [selectedUser, setSelectedUser] = useState({})
     const [status, setStatus] = useState({ loading: true, error: false, success: false })
     const url = `${GUACAMOLE_URL}/${id}`
@@ -44,6 +47,10 @@ const SingleUserPage = () => {
     return <div>
         <Heading title={selectedUser.username} variant="h1" />
         <Paragraph text={selectedUser.email} />
+        {value.role === "teamleiter" && <div>
+            <p>Tel: {selectedUser.phone}</p>
+            <p>ZipCode: {selectedUser.address.zipcode}</p>
+        </div>}
     </div>
 
 }
