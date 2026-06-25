@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import Heading from '../../components/Heading'
+import { useLocalStorage } from '../../hooks/useLocalStorage'
 
 const INIT_VALUES = { username: "", password: "" }
 
 const LoginFeature = () => {
 
+    const {setLocalStorage} = useLocalStorage("itzb_user")
     const [login, setLogin] = useState(INIT_VALUES)
     const [status, setStatus] = useState({loading: false, success: false, error: false})
 
@@ -20,35 +22,12 @@ const LoginFeature = () => {
         e.preventDefault()
 
         console.log("submitted Data", login)
-        setStatus({...status, loading: true})
-
-        setTimeout(() => {
-
-            // https request 
-            fetch('https://jsonplaceholder..com/user')
-                .then(res => {
-
-                    console.log("res", res)
-                    if(!res.ok){
-                        
-                        setStatus({...status, loading: false, error: true})
-                        return Error("fehler")
-                    }
-
-                    return res.json()
-
-                })
-                .then(data => {
-                    console.log("data sind da", data)
-                    setStatus({...status, loading: false, success: true})
-                    setLogin(INIT_VALUES)
-                })
-                .catch(err => {
-                    console.log("error", err)
-                    setStatus({ ...status, loading: false, error: true })
-                })
-
-        }, 3000)
+        const updatedValues = {
+            ...login,
+            loggedIn: true
+        }
+        setLocalStorage(updatedValues)
+        setStatus({...status, loading: false})
 
     }
 
