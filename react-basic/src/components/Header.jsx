@@ -1,10 +1,17 @@
 import Navigation from "./Navigation/Navigation"
 import { memo } from "react"
+import ThemeSwitcher from "./ThemeSwitcher"
 const Header = () => {
-   
+console.log("header renders")
     return <header>
-        <h1>das ist der Header</h1>
-        <Navigation/>
+        <div style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center"
+        }}>
+            <Navigation />
+            <ThemeSwitcher />
+        </div>
     </header>
 }
 

@@ -1,14 +1,17 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import Heading from '../../components/Heading'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
+import { ThemeContext } from '../../context/themeContext'
 
 const INIT_VALUES = { username: "", password: "" }
 
 const LoginFeature = () => {
-
-    const {setLocalStorage, removeLocalStorage} = useLocalStorage("itzb_user")
+    console.log("loginfeature renders")
+    const theme = useContext(ThemeContext)
+    console.log("theme value", theme)
+    const { setLocalStorage, removeLocalStorage } = useLocalStorage("itzb_user")
     const [login, setLogin] = useState(INIT_VALUES)
-    const [status, setStatus] = useState({loading: false, success: false, error: false})
+    const [status, setStatus] = useState({ loading: false, success: false, error: false })
 
     function handleChange(event) {
         const { name, value } = event.target
@@ -28,11 +31,11 @@ const LoginFeature = () => {
             role: "employee"
         }
         setLocalStorage(updatedValues)
-        setStatus({...status, loading: false})
+        setStatus({ ...status, loading: false })
 
     }
 
-    function handleLogout(){
+    function handleLogout() {
         removeLocalStorage()
     }
     console.log("login values", login)
@@ -42,7 +45,7 @@ const LoginFeature = () => {
         {status.success && <h2>daten wurden erfolgreich übermittelt</h2>}
         {status.error && <h2>etwas ist schief gelaufen</h2>}
         <form>
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username" className={`label-${theme.themeStyle}`}>Username</label>
             <br />
             <input
                 type="text"
@@ -52,7 +55,7 @@ const LoginFeature = () => {
                 placeholder="username"
                 onChange={handleChange} />
             <br />
-            <label htmlFor='password'>Password</label>
+            <label htmlFor='password' className={`label-${theme.themeStyle}`}>Password</label>
             <br />
             <input
                 type="text"
@@ -61,9 +64,9 @@ const LoginFeature = () => {
                 id="password"
                 onChange={handleChange} />
             <br />
-            <button onClick={handleSubmit}>Submit</button>
+            <button onClick={handleSubmit} className={`label-${theme.themeStyle}`}>Submit</button>
         </form>
-        <button onClick={handleLogout}>logout</button>
+        <button onClick={handleLogout} className={`label-${theme.themeStyle}`}>logout</button>
     </div>
 }
 

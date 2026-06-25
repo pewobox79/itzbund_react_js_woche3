@@ -1,11 +1,13 @@
-import { memo } from "react"
+import { useContext } from "react"
+import { UserContext } from "../context/userContext"
 
-function Footer () {
-    
-   
+function Footer() {
+    console.log("footer renders")
+    const user = useContext(UserContext)
+    console.log(user)
     return <footer>
-        <h3>das ist der Footer</h3>
+        <h3>das ist der Footer {user.user.username}</h3>
     </footer>
 }
 
-export default memo(Footer)
+export default Footer
