@@ -41,6 +41,7 @@ const LoginFeature = () => {
                 .then(data => {
                     console.log("data sind da", data)
                     setStatus({...status, loading: false, success: true})
+                    setLogin(INIT_VALUES)
                 })
                 .catch(err => {
                     console.log("error", err)
@@ -54,7 +55,7 @@ const LoginFeature = () => {
     console.log("login values", login)
     return <div>
         <Heading title="login feature" variant="h1" />
-        {status.loading && <h1>daten werden geladen</h1>}
+        {status.loading && <h1>daten werden geladen...</h1>}
         {status.success && <h2>daten wurden erfolgreich übermittelt</h2>}
         {status.error && <h2>etwas ist schief gelaufen</h2>}
         <form>

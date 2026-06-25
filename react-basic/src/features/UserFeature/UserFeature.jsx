@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
 import Heading from '../../components/Heading'
 import UserItem from './UserItem'
+import { GUACAMOLE_URL } from '../../utils/constantValues'
 
-const GUACAMOLE_URL = 'https://jsonplaceholder.typicode.com/users'
-//const VICI_URL = 'http://localhost:5173/api/users'
 
 const UserFeature = () => {
 
