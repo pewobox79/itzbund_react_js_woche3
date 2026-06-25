@@ -1,13 +1,16 @@
 import { Navigate, Outlet } from "react-router"
-import { useLocalStorage } from "../hooks/useLocalStorage"
+import { useContext } from "react"
+import { UserContext } from "../context/userContext"
 
 const ProtectedLayout =()=>{
 
     console.log("protected layout renders")
 
-    const {value} = useLocalStorage("itzb_user", {loggedIn: false})
+    const user = useContext(UserContext)
+    console.log("user context", user )
 
-    if(!value.loggedIn){
+    //=> <Navigate/> renders a complete component which includes the redirect logic
+    if(!user.loggedIn){
         return <Navigate to={"/login"}/>
     }
     return <div style={{border: "2px solid red"}}>

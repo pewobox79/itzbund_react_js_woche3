@@ -6,7 +6,7 @@ export function protectedLoader (){
     const isAuth = isAuthenticated()
 
     if(!isAuth){
-        throw redirect("/login")
+        throw redirect("/login") // => SSR redirect on server
     }
 
     return true // => erlaubt zugriff auf das ProtectedLayout

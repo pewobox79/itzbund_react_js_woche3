@@ -13,10 +13,9 @@ const MainLayout = () => {
     console.log("mainlayout renders")
     const [changed, setChanged] = useState(false)
     const [themeStyle, setThemeStyle] = useState("dark")
-    const [user, setUser] = useState(value)
 
     return <ThemeContext value={{ themeStyle, setThemeStyle }}>
-        <UserContext value={{user, setUser}}>
+        <UserContext value={value}>
             <Header changed={changed} />
             <button onClick={() => setChanged(!changed)}>change</button>
             <main>

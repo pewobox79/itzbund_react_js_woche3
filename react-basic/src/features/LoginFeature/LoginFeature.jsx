@@ -2,10 +2,12 @@ import { useContext, useState } from 'react'
 import Heading from '../../components/Heading'
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { ThemeContext } from '../../context/themeContext'
+import { useNavigate } from 'react-router'
 
 const INIT_VALUES = { username: "", password: "" }
 
 const LoginFeature = () => {
+    const navigate = useNavigate();
     console.log("loginfeature renders")
     const theme = useContext(ThemeContext)
     console.log("theme value", theme)
@@ -37,6 +39,8 @@ const LoginFeature = () => {
 
     function handleLogout() {
         removeLocalStorage()
+        navigate("/login") // => hook useNavigate handles in functions
+
     }
     console.log("login values", login)
     return <div>
