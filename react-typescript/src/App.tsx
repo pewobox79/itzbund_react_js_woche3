@@ -3,12 +3,39 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
+import Button from './components/Button'
+import Login from './components/Login'
+import { UserContext } from './context/userContext'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  const [user, setUser] = useState({ username: "" })
   return (
     <>
+      <UserContext value={{ user, setUser }}>
+        <Button
+          label="13"
+          customStyle={{ color: "red", border: "2px solid blue", backgroundColor: "purple" }}
+          style="secondary"
+          isBigBtn={true}
+          buttons={[{ label: "first btn" }, { label: "2nd btn" }, { label: "3rd btn" }]}
+          action={(num1, num2) => {
+            const calc = num1 + num2
+            return calc
+          }}
+        />
+
+        <Login />
+      </UserContext>
+
+
+
+
+
+
+
+
+
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
