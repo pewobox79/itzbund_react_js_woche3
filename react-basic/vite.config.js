@@ -20,4 +20,15 @@ export default defineConfig({
       },
     },
   },
+  esbuild: {
+    include: /.*\.jsx?$/, // Treat .js and .jsx files as JSX
+    exclude: [],
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      loader: {
+        '.js': 'jsx', // Ensure dependencies with JSX in .js are handled
+      },
+    },
+  }
 })
