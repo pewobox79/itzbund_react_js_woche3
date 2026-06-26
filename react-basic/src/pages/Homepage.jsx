@@ -1,5 +1,6 @@
 import Counter from "../components/Counter"
 import Heading from "../components/Heading"
+import LoginForm from "../components/LoginForm"
 import Paragraph from "../components/Paragraph"
 import ConsentFeature from "../features/ConsentFeature/ConsentFeature"
 import LoginFeature from "../features/LoginFeature/LoginFeature"
@@ -9,7 +10,7 @@ const Homepage = () => {
 
     return <>
         <div>
-            <Counter/>
+            <LoginForm/>
             <Heading
                 title="das ist mein heading als prop"
                 variant="h1"
