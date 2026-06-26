@@ -25,8 +25,6 @@ export const useFetch = (url) => {
             }finally{
                 setIsLoading(false)
             }
-
-
         }
 
         fetchData()

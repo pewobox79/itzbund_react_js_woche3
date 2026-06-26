@@ -1,43 +1,17 @@
-import { useEffect, useState } from 'react'
 import Heading from '../../components/Heading'
 import UserItem from './UserItem'
 import { GUACAMOLE_URL } from '../../utils/constantValues'
+import { useFetch } from '../../hooks/useFetch'
 
 
 const UserFeature = () => {
 
-    const [users, setUsers] = useState([])
-    const [state, setState] = useState({loading: false, error: false, success: false})
-    async function handleAPIAsync() {
-        setState({...state, loading: true})
-        try {
-            const response = await fetch(GUACAMOLE_URL)
-            if (!response.ok) {
-                setState({...state, error: true})
-                return { msg: "fehler bei response" }
-            }
-            const data = await response.json()
-            return data
-        } catch (err) {
-            console.log("error", err)
-            return { msg: "api request catched error" }
-        } finally{
-            setState({...state, loading: false})
-        }
-    }
-
-    useEffect(() => {
-        console.log("effect runs")
-        handleAPIAsync()
-            .then(data => setUsers(data))
-
-    }, [])
-
-    console.log("user feature renders")
-    console.log("userlist", users)
-
+    //custom useFetch hook
+    const { data, isLoading, error } = useFetch(GUACAMOLE_URL)
+    if(error) return <h1>error ist passiert</h1>
+    if (isLoading) return <h1>daten werden geladen....</h1>
     // dynamic rendering hier...
-    const UserList = users.map((user) => <UserItem key={user.username + user.id} {...user} />)
+    const UserList = data.map((user) => <UserItem key={user.username + user.id} {...user} />)
 
     return <section>
         <div>
