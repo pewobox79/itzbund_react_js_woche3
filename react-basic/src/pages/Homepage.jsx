@@ -1,3 +1,4 @@
+import Counter from "../components/Counter"
 import Heading from "../components/Heading"
 import Paragraph from "../components/Paragraph"
 import ConsentFeature from "../features/ConsentFeature/ConsentFeature"
@@ -8,6 +9,7 @@ const Homepage = () => {
 
     return <>
         <div>
+            <Counter/>
             <Heading
                 title="das ist mein heading als prop"
                 variant="h1"
